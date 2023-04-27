@@ -22,7 +22,7 @@ class Wrapper
             stream_wrapper_register('includer', Stream::class);
         }
 
-        $file = 'includer://' . ($filename == null ? uniqid() : $filename);
+        $file = 'includer://' . $filename . '@hash=' . uniqid();
         file_put_contents($file, $code);
         return $file;
     }
